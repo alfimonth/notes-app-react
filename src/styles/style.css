@@ -1,0 +1,143 @@
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #faf1e4;
+	color: #435334;
+}
+
+.note-app {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #cedebd;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+	background-color: #435334;
+	color: #fff;
+	padding: 20px 0;
+	text-align: center;
+	border-radius: 1rem;
+}
+
+.header h1 {
+	margin: 0;
+}
+
+.header .search-box {
+	margin-top: 5px;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.header .search-box::placeholder {
+	color: #999;
+}
+
+.header .search-box:focus {
+	outline: none;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.note-app h2 {
+	margin-left: 0.2rem;
+}
+
+.note-list__empty {
+	text-align: center;
+}
+
+.note-input {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+
+.note-input input,
+.note-input textarea {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.note-input textarea {
+	max-width: 100%;
+	min-width: 100%;
+}
+
+.note-input span {
+	float: right;
+	color: #777;
+}
+
+.note-list {
+	margin-top: 20px;
+}
+
+.note-card {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin: 10px 0;
+	padding: 10px;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.note-card__content {
+	padding: 10px;
+}
+
+.note-card__title {
+	font-size: 20px;
+	margin: 0;
+}
+
+.note-card__created {
+	opacity: 0.6;
+}
+
+.note-card__body {
+	margin-top: 10px;
+}
+
+.note-card__action {
+	margin-top: 10px;
+	text-align: right;
+}
+
+.note-input__add,
+.note-item__archive {
+	background-color: #9eb384;
+	color: #fff;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.note-item__delete {
+	background-color: #ff4d4d;
+	color: #fff;
+	border: none;
+	padding: 5px 10px;
+	margin-left: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.note-input__add:hover,
+.note-item__archive:hover {
+	background-color: #435334;
+}
+
+.note-item__delete:hover {
+	background-color: #ff1a1a;
+}
