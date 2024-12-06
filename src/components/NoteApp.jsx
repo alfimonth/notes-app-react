@@ -1,5 +1,5 @@
 import React from "react";
-import { getData } from '../utils/data';
+import { getData } from "../utils/data";
 import Header from "./Header";
 import NoteInput from "./NoteInput";
 import NoteList from "./NoteList";
@@ -9,8 +9,8 @@ class NoteApp extends React.Component {
     super(props);
     this.state = {
       notes: getData(),
-      search: '',
-    }
+      search: "",
+    };
 
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
@@ -20,7 +20,7 @@ class NoteApp extends React.Component {
 
   onSearchHandler(keyword) {
     const searchValue = keyword.target.value.toLowerCase();
-    this.setState({ search: searchValue })
+    this.setState({ search: searchValue });
   }
 
   onAddNoteHandler({ title, body }) {
@@ -34,14 +34,18 @@ class NoteApp extends React.Component {
             body,
             archived: false,
             createdAt: new Date().toISOString(),
-          }
-        ]
-      }
+          },
+        ],
+      };
     });
   }
 
   onDeleteHandler(id) {
-    const notes = this.state.notes.filter(note => note.id !== id);
+    const confirm = window.confirm(
+      "Apakah anda yakin ingin menghapus catatan ini?"
+    );
+    if (!confirm) return;
+    const notes = this.state.notes.filter((note) => note.id !== id);
     this.setState({ notes });
   }
 
@@ -52,8 +56,11 @@ class NoteApp extends React.Component {
   }
 
   render() {
-    const searchNotes = !this.state.search ? this.state.notes
-      : this.state.notes.filter(note => note.title.toLowerCase().match(this.state.search));
+    const searchNotes = !this.state.search
+      ? this.state.notes
+      : this.state.notes.filter((note) =>
+          note.title.toLowerCase().match(this.state.search)
+        );
     const notArchivedNotes = searchNotes.filter((note) => !note.archived);
     const ArchivedNotes = searchNotes.filter((note) => note.archived);
 
@@ -63,13 +70,20 @@ class NoteApp extends React.Component {
         <h2>Tambah Catatan</h2>
         <NoteInput addNote={this.onAddNoteHandler} />
         <h2>Catatan Aktif</h2>
-        <NoteList notes={notArchivedNotes} onArchive={this.onArchiveHandler} onDelete={this.onDeleteHandler} />
+        <NoteList
+          notes={notArchivedNotes}
+          onArchive={this.onArchiveHandler}
+          onDelete={this.onDeleteHandler}
+        />
         <h2>Arsip</h2>
-        <NoteList notes={ArchivedNotes} onArchive={this.onArchiveHandler} onDelete={this.onDeleteHandler} />
-
+        <NoteList
+          notes={ArchivedNotes}
+          onArchive={this.onArchiveHandler}
+          onDelete={this.onDeleteHandler}
+        />
       </div>
     );
   }
 }
 
-export default NoteApp
+export default NoteApp;
