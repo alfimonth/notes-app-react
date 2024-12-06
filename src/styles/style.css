@@ -121,6 +121,7 @@ body {
 	padding: 5px 10px;
 	border-radius: 5px;
 	cursor: pointer;
+	font-size: large;
 }
 
 .note-item__delete {
@@ -131,6 +132,7 @@ body {
 	margin-left: 10px;
 	border-radius: 5px;
 	cursor: pointer;
+	font-size: large;
 }
 
 .note-input__add:hover,
